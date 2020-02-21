@@ -1,6 +1,5 @@
 {
   "name": "@openmessage/qstream",
-  "type": "module",
   "version": "0.0.10",
   "description": "Topic-Based Messaging Queue on top of Redis Streams",
   "main": "lib",
