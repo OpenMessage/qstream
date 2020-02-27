@@ -49,6 +49,18 @@ qstream.publish('your-topic', data);
 
 **data**: can be any valid javascript object, primitive values not supported
 
+With extra args, like maxLen, that will cap the stream to the specified length:
+
+```javascript
+qstream.publish('your-topic', data, { maxLen: 10 });
+```
+
+Or approximated maxLen:
+
+```javascript
+qstream.publish('your-topic', data, { maxLen: ['~', 10] });
+```
+
 ### Consumer Group
 
 ```javascript
