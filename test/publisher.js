@@ -24,7 +24,7 @@ test('publish with maxlen', async t => {
     }
     const publish = publisher(redis)
 
-    const commandArgs = await publish('a-stream', { a: 1 }, { maxLen: 10 })
+    const commandArgs = await publish('a-stream', { a: 1 }, 10)
 
     t.deepEqual(commandArgs, ['a-stream', 'MAXLEN', '10', '*', 'ENTRY', '{"a":1}'])
 });
@@ -36,7 +36,7 @@ test('publish with approximated maxlen', async t => {
     }
     const publish = publisher(redis)
 
-    const commandArgs = await publish('a-stream', { a: 1 }, { maxLen: ['~', 10] })
+    const commandArgs = await publish('a-stream', { a: 1 },'~10')
 
     t.deepEqual(commandArgs, ['a-stream', 'MAXLEN', '~', '10', '*', 'ENTRY', '{"a":1}'])
 });

@@ -52,13 +52,13 @@ qstream.publish('your-topic', data);
 With extra args, like maxLen, that will cap the stream to the specified length:
 
 ```javascript
-qstream.publish('your-topic', data, { maxLen: 10 });
+qstream.publish('your-topic', data, 10);
 ```
 
 Or approximated maxLen:
 
 ```javascript
-qstream.publish('your-topic', data, { maxLen: ['~', 10] });
+qstream.publish('your-topic', data, '~10');
 ```
 
 ### Consumer Group
