@@ -61,6 +61,8 @@ Or approximated maxLen:
 qstream.publish('your-topic', data, '~10');
 ```
 
+By default streams will be capped to aprox 10000 (MAXLEN ~ 10000). If you don't want your stream to be capped, you have to explicitly set the last arg of publish to `null`.
+
 ### Consumer Group
 
 ```javascript
