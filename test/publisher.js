@@ -13,6 +13,18 @@ test('publish', async t => {
 
     const commandArgs = await publish('a-stream', { a: 1 })
 
+    t.deepEqual(commandArgs, ['a-stream', 'MAXLEN', '~', '10000','*', 'ENTRY', '{"a":1}'])
+});
+
+test('publish disabling maxLen', async t => {
+    t.plan(1)
+    const redis = {
+        xadd: (command, cb) => cb(null, command) 
+    }
+    const publish = publisher(redis)
+
+    const commandArgs = await publish('a-stream', { a: 1 }, null)
+
     t.deepEqual(commandArgs, ['a-stream', '*', 'ENTRY', '{"a":1}'])
 });
 
